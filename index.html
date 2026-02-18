@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SaaS Agency</title>
+
+<style>
+:root{
+  --brand:#333333;
+  --brand-light:#4A4A4A;
+  --bg:#f2f2f2;
+  --card:#ffffff;
+  --wa:#25D366;
+  --tg:#2A6C8E;
+  --text:#222;
+  --muted:#7a7a7a;
+  --radius:18px;
+  --shadow:0 20px 40px rgba(0,0,0,.15);
+  --max:560px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.shell{max-width:var(--max);margin:0 auto}
+
+.hero{
+  background:var(--brand);
+  color:#fff;
+  padding:48px 20px 28px;
+  text-align:center;
+}
+
+.avatar{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid rgba(255,255,255,.3);
+}
+
+h1{
+  margin:20px 0 10px;
+  font-size:26px;
+  font-weight:800;
+}
+
+.subtitle{
+  font-size:15px;
+  opacity:.9;
+  line-height:1.5;
+  font-weight:500;
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+  margin-top:24px;
+}
+
+.actions a{
+  flex:1;
+  padding:14px 6px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:800;
+  border-radius:14px;
+  background:var(--brand-light);
+  transition:.15s;
+}
+
+.actions a:active{transform:scale(.96)}
+
+.card{
+  background:var(--card);
+  margin:22px 18px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.row{
+  padding:18px;
+  border-top:1px solid #eee;
+}
+
+.row:first-child{border-top:none}
+
+.value{
+  font-size:16px;
+  font-weight:700;
+}
+
+.label{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:6px;
+}
+
+.link{
+  text-decoration:none;
+  color:var(--text);
+  font-weight:800;
+}
+
+.btnRow{
+  display:flex;
+  gap:14px;
+  padding:18px 18px 0;
+}
+
+.btn{
+  flex:1;
+  padding:15px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.15s;
+}
+
+.btn:active{transform:scale(.95)}
+
+.btn.wa{background:var(--wa)}
+.btn.tg{background:var(--tg)}
+
+.btnSave{
+  display:block;
+  margin:18px;
+  padding:15px;
+  border-radius:16px;
+  text-align:center;
+  font-weight:900;
+  text-decoration:none;
+  color:#222;
+  background:#fff;
+  border:1px solid #e6e6e6;
+}
+
+</style>
+</head>
+
+<body>
+<div class="shell">
+
+  <div class="hero">
+    <!-- Поменяй фото при необходимости -->
+    <img src="photo.jpg" class="avatar" alt="Фото">
+
+    <h1>Ваше Имя Фамилия</h1>
+
+    <div class="subtitle">
+      Основатель и руководитель SaaS-агентства<br>
+      Автоматизация бизнеса • Цифровые системы • Масштабирование
+    </div>
+
+    <div class="actions">
+      <a href="tel:+79260666830">📞 ПОЗВОНИТЬ</a>
+      <a href="mailto:info@saasagency.ru">✉ EMAIL</a>
+      <a href="https://t.me/projectsff" target="_blank">📩 TELEGRAM</a>
+    </div>
+  </div>
+
+  <div class="card">
+
+    <div class="row">
+      <div class="value">
+        <a class="link" href="tel:+79260666830">
+          +7 926 066 68 30
+        </a>
+      </div>
+      <div class="label">Телефон</div>
+    </div>
+
+    <div class="row">
+      <div class="value">
+        <a class="link" href="mailto:info@saasagency.ru">
+          info@saasagency.ru
+        </a>
+      </div>
+      <div class="label">Email</div>
+    </div>
+
+    <div class="row">
+      <div class="value">
+        <a class="link" href="https://t.me/projectsff" target="_blank">
+          @projectsff
+        </a>
+      </div>
+      <div class="label">Telegram</div>
+    </div>
+
+    <div class="btnRow">
+      <a class="btn wa"
+         href="https://api.whatsapp.com/send?phone=79260666830"
+         target="_blank">
+        WHATSAPP
+      </a>
+
+      <a class="btn tg"
+         href="https://t.me/projectsff"
+         target="_blank">
+        TELEGRAM
+      </a>
+    </div>
+
+    <a class="btnSave" href="contact.vcf">
+      👤 СОХРАНИТЬ КОНТАКТ
+    </a>
+
+  </div>
+
+</div>
+</body>
+</html>
