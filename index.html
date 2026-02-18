@@ -9,14 +9,14 @@
 :root{
   --brand:#333333;
   --brand-light:#4A4A4A;
-  --bg:#f2f2f2;
-  --card:#ffffff;
-  --wa:#25D366;
-  --tg:#2A6C8E;
+  --bg:#F9F8F4;
+  --card:#F9F8F4;
+  --wa:#3C3C3C;
+  --tg:#262626;
   --text:#222;
   --muted:#7a7a7a;
   --radius:18px;
-  --shadow:0 20px 40px rgba(0,0,0,.15);
+  --shadow:0 20px 40px rgba(0,0,0,.12);
   --max:560px;
 }
 
@@ -33,7 +33,7 @@ body{
 .hero{
   background:var(--brand);
   color:#fff;
-  padding:48px 20px 28px;
+  padding:50px 20px 30px;
   text-align:center;
 }
 
@@ -46,7 +46,7 @@ body{
 }
 
 h1{
-  margin:20px 0 10px;
+  margin:22px 0 10px;
   font-size:26px;
   font-weight:800;
 }
@@ -54,25 +54,25 @@ h1{
 .subtitle{
   font-size:15px;
   opacity:.9;
-  line-height:1.5;
-  font-weight:500;
+  line-height:1.6;
 }
 
 .actions{
   display:flex;
   gap:12px;
-  margin-top:24px;
+  margin-top:26px;
 }
 
 .actions a{
   flex:1;
-  padding:14px 6px;
+  padding:15px 6px;
   text-decoration:none;
   color:#fff;
   font-weight:800;
-  border-radius:14px;
+  border-radius:16px;
   background:var(--brand-light);
   transition:.15s;
+  font-size:14px;
 }
 
 .actions a:active{transform:scale(.96)}
@@ -86,14 +86,14 @@ h1{
 }
 
 .row{
-  padding:18px;
-  border-top:1px solid #eee;
+  padding:20px;
+  border-top:1px solid rgba(0,0,0,.05);
 }
 
 .row:first-child{border-top:none}
 
 .value{
-  font-size:16px;
+  font-size:17px;
   font-weight:700;
 }
 
@@ -112,19 +112,17 @@ h1{
 .btnRow{
   display:flex;
   gap:14px;
-  padding:18px 18px 0;
+  padding:20px;
 }
 
 .btn{
   flex:1;
-  padding:15px;
-  border-radius:16px;
+  padding:16px;
+  border-radius:18px;
   text-decoration:none;
   color:#fff;
   font-weight:900;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  text-align:center;
   transition:.15s;
 }
 
@@ -135,15 +133,15 @@ h1{
 
 .btnSave{
   display:block;
-  margin:18px;
-  padding:15px;
-  border-radius:16px;
+  margin:0 20px 22px;
+  padding:16px;
+  border-radius:18px;
   text-align:center;
   font-weight:900;
   text-decoration:none;
   color:#222;
   background:#fff;
-  border:1px solid #e6e6e6;
+  border:1px solid rgba(0,0,0,.08);
 }
 
 </style>
@@ -153,7 +151,6 @@ h1{
 <div class="shell">
 
   <div class="hero">
-    <!-- Поменяй фото при необходимости -->
     <img src="photo.jpg" class="avatar" alt="Фото">
 
     <h1>Ваше Имя Фамилия</h1>
@@ -164,9 +161,9 @@ h1{
     </div>
 
     <div class="actions">
-      <a href="tel:+79260666830">📞 ПОЗВОНИТЬ</a>
-      <a href="mailto:info@saasagency.ru">✉ EMAIL</a>
-      <a href="https://t.me/projectsff" target="_blank">📩 TELEGRAM</a>
+      <a href="tel:+79260666830">ПОЗВОНИТЬ</a>
+      <a href="mailto:info@saasagency.ru">EMAIL</a>
+      <a href="#">ПОРТФОЛИО</a>
     </div>
   </div>
 
@@ -213,8 +210,8 @@ h1{
       </a>
     </div>
 
-    <a class="btnSave" href="contact.vcf">
-      👤 СОХРАНИТЬ КОНТАКТ
+    <a class="btnSave" href="#">
+      СОХРАНИТЬ КОНТАКТ
     </a>
 
   </div>
