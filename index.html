@@ -9,25 +9,16 @@
 <style>
 :root{
   --brand:#47060C;
-  --brand-light:#6A1A22;
   --accent:#D5BEB2;
   --bg:#f5f3f2;
   --card:#fff;
   --text:#222;
-  --muted:#7a7a7a;
   --radius:16px;
   --shadow:0 15px 35px rgba(0,0,0,.12);
   --max:560px;
 }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-
+body{margin:0;font-family:Arial;background:var(--bg)}
 .shell{max-width:var(--max);margin:0 auto}
 
 /* HERO */
@@ -36,128 +27,141 @@ body{
   color:#fff;
   padding:30px 20px 20px;
   text-align:center;
+  position:relative;
+}
+
+/* HOME */
+.home{
+  position:absolute;
+  top:12px;
+  left:12px;
+  width:40px;height:40px;
+  border-radius:50%;
+  background:rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  color:#fff;
+}
+
+/* LANG */
+.lang{
+  position:absolute;
+  top:12px;
+  right:12px;
+  display:flex;
+  background:rgba(255,255,255,.2);
+  border-radius:999px;
+}
+.lang button{
+  border:none;
+  background:none;
+  color:#fff;
+  padding:6px 10px;
+  font-weight:700;
+  cursor:pointer;
+}
+.lang .active{
+  background:#fff;
+  color:#47060C;
+  border-radius:999px;
 }
 
 .avatar{
-  width:100px;
-  height:100px;
+  width:100px;height:100px;
   border-radius:50%;
   object-fit:cover;
   border:3px solid rgba(255,255,255,.3);
 }
 
 h1{
-  margin:18px 0 6px;
-  font-size:26px;
-  font-weight:800;
+  color:var(--accent);
+  margin:15px 0 5px;
 }
 
 .subtitle{
+  color:var(--accent);
   font-size:14px;
-  opacity:.95;
   line-height:1.6;
 }
 
-/* ACTION BUTTONS */
+/* ACTIONS */
 .actions{
   display:flex;
   gap:10px;
   margin-top:18px;
 }
-
 .actions a{
   flex:1;
-  padding:14px 6px;
+  padding:14px;
+  border-radius:12px;
+  background:rgba(255,255,255,.12);
   text-decoration:none;
   color:#fff;
   font-weight:800;
-  border-radius:12px;
-  background:rgba(255,255,255,.12);
-  font-size:13px;
+  text-align:center;
 }
 
 /* CARD */
 .card{
   background:#fff;
   margin:16px;
-  border-radius:var(--radius);
+  border-radius:16px;
   box-shadow:var(--shadow);
-  overflow:hidden;
 }
 
-.row{
-  padding:16px;
-  border-top:1px solid #eee;
-}
+.row{padding:16px;border-top:1px solid #eee}
+.row:first-child{border:none}
 
-.row:first-child{border-top:none}
+.value{font-weight:700}
+.label{font-size:12px;color:#777;margin-top:4px}
 
-.value{
-  font-size:16px;
-  font-weight:700;
-}
-
-.label{
-  font-size:12px;
-  color:var(--muted);
-  margin-top:4px;
-}
-
-.link{
-  color:#222;
-  text-decoration:none;
-  font-weight:800;
-}
-
-/* PROJECT DROPDOWN */
-.dropdown{
-  cursor:pointer;
-}
-
-.dropdownContent{
-  display:none;
-  padding-top:10px;
-}
-
-.dropdownContent a{
+/* DROPDOWN */
+.dropdown{cursor:pointer}
+.projects{display:none;margin-top:10px}
+.projects a{
   display:block;
-  padding:10px 0;
-  text-decoration:none;
+  padding:8px 0;
   color:#47060C;
+  text-decoration:none;
   font-weight:700;
 }
 
 /* BUTTONS */
 .btnRow{
   display:flex;
-  gap:12px;
+  gap:10px;
   padding:16px;
 }
-
 .btn{
   flex:1;
   padding:14px;
-  border-radius:14px;
-  text-decoration:none;
+  border-radius:12px;
   color:#fff;
   font-weight:900;
   text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
 }
 
-.btn.wa{background:#25D366}
-.btn.tg{background:#229ED9}
+.btn.wa{background:#47060C}
+.btn.tg{background:#47060C}
 
-.btnSave{
+.icon{
+  width:20px;height:20px;
+}
+
+.save{
   display:block;
   margin:0 16px 16px;
   padding:14px;
-  border-radius:14px;
   text-align:center;
-  font-weight:900;
+  border-radius:12px;
+  border:1px solid #eee;
+  font-weight:800;
   text-decoration:none;
   color:#222;
-  background:#fff;
-  border:1px solid #eee;
 }
 </style>
 </head>
@@ -166,78 +170,79 @@ h1{
 
 <div class="shell">
 
-  <div class="hero">
+<div class="hero">
 
-    <img src="anita.jpg" class="avatar">
+<a class="home" href="https://www.instagram.com/_anitatam?igsh=MnN2bXZvbWF0Nmc5">🏠</a>
 
-    <h1>Анита</h1>
+<div class="lang">
+<button class="active">RU</button>
+<button>EN</button>
+</div>
 
-    <div class="subtitle">
-      Основатель и руководитель Dune Estate<br>
-      Недвижимость • ЧР • Дубай
-    </div>
+<img src="anita.jpg" class="avatar">
 
-    <div class="actions">
-      <a href="tel:+79991234567">ПОЗВОНИТЬ</a>
-      <a href="mailto:info@dunestate.com">EMAIL</a>
-      <a href="#">КАТАЛОГ</a>
-    </div>
+<h1>Анита</h1>
 
-  </div>
+<div class="subtitle">
+Основатель и руководитель Dune Estate<br>
+Недвижимость • ЧР • Дубай
+</div>
 
-  <div class="card">
+<div class="actions">
+<a href="tel:+79991234567">ПОЗВОНИТЬ</a>
+<a href="mailto:info@dunestate.com">EMAIL</a>
+<a href="#">КАТАЛОГ</a>
+</div>
 
-    <div class="row">
-      <div class="value">
-        <a class="link" href="tel:+79991234567">+7 999 123-45-67</a>
-      </div>
-      <div class="label">Телефон</div>
-    </div>
+</div>
 
-    <div class="row">
-      <div class="value">
-        <a class="link" href="mailto:info@dunestate.com">info@dunestate.com</a>
-      </div>
-      <div class="label">Email</div>
-    </div>
+<div class="card">
 
-    <div class="row">
-      <div class="value">
-        <a class="link" href="https://dunestate.com" target="_blank">dunestate.com</a>
-      </div>
-      <div class="label">Сайт</div>
-    </div>
+<div class="row">
+<div class="value">+7 999 123-45-67</div>
+<div class="label">Телефон</div>
+</div>
 
-    <!-- DROPDOWN -->
-    <div class="row dropdown" onclick="toggleProjects()">
-      <div class="value">Другие проекты ▼</div>
+<div class="row">
+<div class="value">info@dunestate.com</div>
+<div class="label">Email</div>
+</div>
 
-      <div id="projects" class="dropdownContent">
-        <a href="https://www.instagram.com/kuhni_marya_grozny95?igsh=MTI4NjNicmUzOXA5ZA==" target="_blank">
-          Кухни и шкафы Мария
-        </a>
+<div class="row">
+<div class="value">dunestate.com</div>
+<div class="label">Сайт</div>
+</div>
 
-        <a href="https://www.instagram.com/kuhni_marya_grozny95?igsh=MTI4NjNicmUzOXA5ZA==" target="_blank">
-          Премиальная мебель Калинка
-        </a>
-      </div>
-    </div>
+<div class="row dropdown" onclick="toggleProjects()">
+<div class="value">Другие проекты ▼</div>
 
-    <div class="btnRow">
-      <a class="btn wa">WHATSAPP</a>
-      <a class="btn tg">TELEGRAM</a>
-    </div>
+<div class="projects" id="projects">
+<a href="https://www.instagram.com/kuhni_marya_grozny95?igsh=MTI4NjNicmUzOXA5ZA==" target="_blank">Кухни и шкафы Мария</a>
+<a href="https://www.instagram.com/kuhni_marya_grozny95?igsh=MTI4NjNicmUzOXA5ZA==" target="_blank">Премиальная мебель Калинка</a>
+</div>
 
-    <a class="btnSave">СОХРАНИТЬ КОНТАКТ</a>
+</div>
 
-  </div>
+<div class="btnRow">
+<div class="btn wa">
+<img src="wa.png" class="icon"> WhatsApp
+</div>
+
+<div class="btn tg">
+<img src="tg.png" class="icon"> Telegram
+</div>
+</div>
+
+<a class="save">СОХРАНИТЬ КОНТАКТ</a>
+
+</div>
 
 </div>
 
 <script>
 function toggleProjects(){
-  const el = document.getElementById('projects');
-  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+const el = document.getElementById('projects');
+el.style.display = el.style.display === 'block' ? 'none' : 'block';
 }
 </script>
 
