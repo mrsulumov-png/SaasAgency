@@ -23,7 +23,7 @@ body{
   margin:0 auto;
 }
 
-/* ANIMATION */
+/* ANIMATION LOAD */
 .fadeUp{
   opacity:0;
   transform:translateY(20px);
@@ -31,10 +31,18 @@ body{
 }
 .delay1{animation-delay:.2s}
 .delay2{animation-delay:.4s}
-.delay3{animation-delay:.6s}
 
 @keyframes fadeUp{
   to{opacity:1;transform:none;}
+}
+
+/* iPhone PRESS EFFECT */
+a, .btn, .save, .home, button{
+  transition: transform .12s ease, opacity .12s ease;
+}
+a:active, .btn:active, .save:active, .home:active, button:active{
+  transform:scale(.96);
+  opacity:.85;
 }
 
 /* HERO */
@@ -78,7 +86,6 @@ body{
   padding:6px 12px;
   font-weight:700;
   cursor:pointer;
-  transition:.2s;
 }
 .lang .active{
   background:#fff;
@@ -95,15 +102,8 @@ body{
 }
 
 /* TEXT */
-h1{
-  color:#fff;
-  margin:15px 0 5px;
-}
-.subtitle{
-  color:#fff;
-  font-size:14px;
-  line-height:1.6;
-}
+h1{color:#fff;margin:15px 0 5px}
+.subtitle{color:#fff;font-size:14px}
 
 /* ACTIONS */
 .actions{
@@ -134,12 +134,9 @@ h1{
   border-top:1px solid #eee;
 }
 .row:first-child{border:none}
+
 .value{font-weight:700}
-.label{
-  font-size:12px;
-  color:#777;
-  margin-top:4px;
-}
+.label{font-size:12px;color:#777;margin-top:4px}
 
 /* PROJECTS */
 .projects{
@@ -169,9 +166,7 @@ h1{
   font-weight:900;
   text-align:center;
 }
-.btn.tg{
-  background:#6E1A22;
-}
+.btn.tg{background:#6E1A22}
 
 /* SAVE */
 .saveWrap{
@@ -180,7 +175,6 @@ h1{
   margin:0 16px 30px;
   border-radius:0 0 16px 16px;
 }
-
 .save{
   display:flex;
   align-items:center;
@@ -230,21 +224,21 @@ h1{
 
 <div class="row">
 <div class="value">+7 999 123-45-67</div>
-<div class="label">Телефон</div>
+<div class="label" id="phoneLabel">Телефон</div>
 </div>
 
 <div class="row">
 <div class="value">info@dunestate.com</div>
-<div class="label">Email</div>
+<div class="label" id="emailLabel">Email</div>
 </div>
 
 <div class="row">
 <div class="value">dunestate.com</div>
-<div class="label">Сайт</div>
+<div class="label" id="siteLabel">Сайт</div>
 </div>
 
 <div class="row" onclick="toggleProjects()">
-<div class="value">Другие проекты <span style="font-weight:400;">▾</span></div>
+<div class="value" id="projectsTitle">Другие проекты <span style="font-weight:400;">▾</span></div>
 
 <div class="projects" id="projects">
 <a href="#">Кухни и шкафы Мария</a>
@@ -260,36 +254,49 @@ h1{
 </div>
 
 <div class="saveWrap fadeUp delay2">
-  <div class="save">👤 СОХРАНИТЬ КОНТАКТ</div>
+<div class="save">👤 СОХРАНИТЬ КОНТАКТ</div>
 </div>
 
 </div>
 
 <script>
 function toggleProjects(){
-const el = document.getElementById('projects');
-el.style.display = el.style.display === 'block' ? 'none' : 'block';
+const el=document.getElementById('projects');
+el.style.display=el.style.display==='block'?'none':'block';
 }
 
 function setLang(lang){
-const ruBtn = document.getElementById('ruBtn');
-const enBtn = document.getElementById('enBtn');
+const ruBtn=document.getElementById('ruBtn');
+const enBtn=document.getElementById('enBtn');
 
 ruBtn.classList.remove('active');
 enBtn.classList.remove('active');
 
 if(lang==='en'){
 enBtn.classList.add('active');
+
 document.getElementById('name').innerText='Anita';
 document.getElementById('title').innerHTML='Founder & CEO Dune Estate<br>Real Estate • Chechnya • Dubai';
 document.getElementById('call').innerText='CALL';
 document.getElementById('catalog').innerText='CATALOG';
+
+document.getElementById('phoneLabel').innerText='Phone';
+document.getElementById('emailLabel').innerText='Email';
+document.getElementById('siteLabel').innerText='Website';
+document.getElementById('projectsTitle').innerHTML='Other projects <span style="font-weight:400;">▾</span>';
+
 }else{
 ruBtn.classList.add('active');
+
 document.getElementById('name').innerText='Анита';
 document.getElementById('title').innerHTML='Основатель и руководитель Dune Estate<br>Недвижимость • ЧР • Дубай';
 document.getElementById('call').innerText='ПОЗВОНИТЬ';
 document.getElementById('catalog').innerText='КАТАЛОГ';
+
+document.getElementById('phoneLabel').innerText='Телефон';
+document.getElementById('emailLabel').innerText='Email';
+document.getElementById('siteLabel').innerText='Сайт';
+document.getElementById('projectsTitle').innerHTML='Другие проекты <span style="font-weight:400;">▾</span>';
 }
 }
 </script>
