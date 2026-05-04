@@ -23,24 +23,24 @@ body{
   margin:0 auto;
 }
 
-/* ANIMATION LOAD */
+/* ANIMATION */
 .fadeUp{
   opacity:0;
   transform:translateY(20px);
   animation:fadeUp .6s ease forwards;
 }
 .delay1{animation-delay:.2s}
-.delay2{animation-delay:.4s}
+.delay2{animation-delay:.3s}
 
 @keyframes fadeUp{
   to{opacity:1;transform:none;}
 }
 
-/* iPhone PRESS EFFECT */
-a, .btn, .save, .home, button{
-  transition: transform .12s ease, opacity .12s ease;
+/* PRESS EFFECT */
+a, .btn, .save, button{
+  transition:.12s;
 }
-a:active, .btn:active, .save:active, .home:active, button:active{
+a:active, .btn:active, .save:active, button:active{
   transform:scale(.96);
   opacity:.85;
 }
@@ -113,7 +113,7 @@ h1{color:#fff;margin:15px 0 5px}
 }
 .actions a{
   flex:1;
-  padding:14px;
+  padding:12px;
   border-radius:14px;
   background:rgba(255,255,255,.15);
   text-decoration:none;
@@ -148,30 +148,31 @@ h1{color:#fff;margin:15px 0 5px}
   padding:8px 0;
   color:#47060C;
   text-decoration:none;
-  font-weight:500;
 }
 
 /* BUTTONS */
 .btnRow{
   display:flex;
   gap:10px;
-  padding:16px;
+  padding:12px 16px 10px; /* меньше отступ */
 }
 .btn{
   flex:1;
-  padding:14px;
+  padding:12px; /* ТОНЬШЕ */
   border-radius:14px;
   background:#47060C;
   color:#D5BEB2;
   font-weight:900;
   text-align:center;
 }
-.btn.tg{background:#6E1A22}
+.btn.tg{
+  background:#6E1A22;
+}
 
 /* SAVE */
 .saveWrap{
   background:#fff;
-  padding:16px 16px 30px;
+  padding:10px 16px 20px; /* уменьшил расстояние */
   margin:0 16px 30px;
   border-radius:0 0 16px 16px;
 }
@@ -180,10 +181,11 @@ h1{color:#fff;margin:15px 0 5px}
   align-items:center;
   justify-content:center;
   gap:10px;
-  padding:16px;
+  padding:14px;
   border-radius:14px;
   border:1px solid #e5e5e5;
   font-weight:900;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -238,7 +240,7 @@ h1{color:#fff;margin:15px 0 5px}
 </div>
 
 <div class="row" onclick="toggleProjects()">
-<div class="value" id="projectsTitle">Другие проекты <span style="font-weight:400;">▾</span></div>
+<div class="value" id="projectsTitle">Другие проекты ▾</div>
 
 <div class="projects" id="projects">
 <a href="#">Кухни и шкафы Мария</a>
@@ -254,7 +256,7 @@ h1{color:#fff;margin:15px 0 5px}
 </div>
 
 <div class="saveWrap fadeUp delay2">
-<div class="save">👤 СОХРАНИТЬ КОНТАКТ</div>
+<div class="save" onclick="downloadContact()">👤 СОХРАНИТЬ КОНТАКТ</div>
 </div>
 
 </div>
@@ -283,7 +285,7 @@ document.getElementById('catalog').innerText='CATALOG';
 document.getElementById('phoneLabel').innerText='Phone';
 document.getElementById('emailLabel').innerText='Email';
 document.getElementById('siteLabel').innerText='Website';
-document.getElementById('projectsTitle').innerHTML='Other projects <span style="font-weight:400;">▾</span>';
+document.getElementById('projectsTitle').innerText='Other projects ▾';
 
 }else{
 ruBtn.classList.add('active');
@@ -296,8 +298,26 @@ document.getElementById('catalog').innerText='КАТАЛОГ';
 document.getElementById('phoneLabel').innerText='Телефон';
 document.getElementById('emailLabel').innerText='Email';
 document.getElementById('siteLabel').innerText='Сайт';
-document.getElementById('projectsTitle').innerHTML='Другие проекты <span style="font-weight:400;">▾</span>';
+document.getElementById('projectsTitle').innerText='Другие проекты ▾';
 }
+}
+
+/* СКАЧАТЬ КОНТАКТ */
+function downloadContact(){
+const vcard = `
+BEGIN:VCARD
+VERSION:3.0
+FN:Анита
+TEL:+79991234567
+EMAIL:info@dunestate.com
+END:VCARD
+`;
+
+const blob = new Blob([vcard], { type: 'text/vcard' });
+const link = document.createElement('a');
+link.href = URL.createObjectURL(blob);
+link.download = 'anita.vcf';
+link.click();
 }
 </script>
 
